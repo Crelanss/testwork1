@@ -1,18 +1,18 @@
 import {makeAutoObservable} from 'mobx'
 
-class PageNumberState{
+class PageNumberState {
 
-    currentNumber=2
+    currentNumber = 2
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    increaseNumber(){
+    increaseNumber() {
         this.currentNumber++
     }
 
-    decreaseNumber(){
+    decreaseNumber() {
         this.currentNumber--
     }
 }

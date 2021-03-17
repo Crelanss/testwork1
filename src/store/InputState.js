@@ -1,17 +1,15 @@
-import {makeAutoObservable, autorun} from 'mobx'
-import Numbers from "./Numbers";
-import PageNumber from "./PageNumber";
+import {makeAutoObservable} from 'mobx'
 
-class InputState{
+class InputState {
 
-    text=''
+    text = ''
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    setText(inputText){
-        this.text=inputText
+    setText(inputText) {
+        this.text = inputText
     }
 
 }

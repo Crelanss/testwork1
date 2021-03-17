@@ -2,9 +2,9 @@ import React, {useEffect} from 'react'
 import styled from "styled-components";
 import InputState from "./store/InputState";
 import {observer} from 'mobx-react-lite'
-import Numbers from "./store/Numbers";
+import Numbers from "./store/NumbersState";
 
-const InputComponent =styled.div`
+const InputComponent = styled.div`
   margin-top: 20px;
   width:300px;
   height: 50px;
@@ -17,11 +17,15 @@ const InputComponent =styled.div`
   }
 `
 
-const Input=observer(()=>{
-    useEffect(()=>{Numbers.findNumber(InputState.text)})
-    return(
+const Input = observer(() => {
+    useEffect(() => {
+        Numbers.findNumber(InputState.text)
+    })
+    return (
         <InputComponent>
-            <input onChange={event=>{InputState.setText(event.target.value)}}
+            <input onChange={event => {
+                InputState.setText(event.target.value)
+            }}
                    value={InputState.text}
             />
             {InputState.text}

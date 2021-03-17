@@ -1,26 +1,27 @@
 import {makeAutoObservable} from 'mobx'
 import {maxWordsInPage} from "../Table";
 import {numbers} from "../Table";
-import PageNumber from "./PageNumber";
 
-class NumbersState{
+class NumbersState {
 
-    numbersInCurrentPage=[]
+    numbersInCurrentPage = []
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    setNumbersInCurrentPage(ChosenPage){
-        for(let i=0; i<maxWordsInPage; i++){
-            this.numbersInCurrentPage[i]=numbers[(ChosenPage-1)*(20)+i]
+    setNumbersInCurrentPage(ChosenPage) {
+        for (let i = 0; i < maxWordsInPage; i++) {
+            this.numbersInCurrentPage[i] = numbers[(ChosenPage - 1) * (20) + i]
         }
     }
-    reverseSort(){
-        this.numbersInCurrentPage.sort((a,b)=>b-a)
+
+    reverseSort() {
+        this.numbersInCurrentPage.sort((a, b) => b - a)
     }
-    StraightSort(){
-        this.numbersInCurrentPage.sort((a,b)=>a-b)
+
+    StraightSort() {
+        this.numbersInCurrentPage.sort((a, b) => a - b)
     }
 
     findNumber(text) {
