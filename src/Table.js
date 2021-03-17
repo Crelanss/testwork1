@@ -15,9 +15,15 @@ const TableComponent = styled.div`
   margin-right: auto;
 `
 
+const ColumnName = styled.div`
+  &:hover{
+    cursor: pointer;
+  }
+`
+
 export const numbers = []
 
-export const wordNumber = 65;
+export const wordNumber = 257;
 
 export const maxWordsInPage = 20;
 
@@ -41,7 +47,7 @@ const sortHandler = () => {
 
 
 const Table = observer(() => {
-    useEffect(() => Numbers.setNumbersInCurrentPage(ChosenPage.isChosen))
+    useEffect(() => Numbers.setNumbersInCurrentPage(ChosenPage.isChosen), [InputState.text,ChosenPage.isChosen])
     useEffect(() => {
         clickCounter = 0
     }, [ChosenPage.isChosen])
@@ -50,7 +56,7 @@ const Table = observer(() => {
     })
     return (
         <TableComponent>
-            <div onClick={() => sortHandler()}>Числа</div>
+            <ColumnName onClick={() => sortHandler()}>Числа</ColumnName>
             {Numbers.numbersInCurrentPage.map((el) => (
                 <div>{el}</div>
             ))}

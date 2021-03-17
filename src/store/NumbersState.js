@@ -6,6 +6,8 @@ class NumbersState {
 
     numbersInCurrentPage = []
 
+    copy=[]
+
     constructor() {
         makeAutoObservable(this)
     }
